@@ -4,3 +4,4 @@ package-lock.json
 
 # 環境変数ファイル
 config.json
+config.json.prod
