@@ -1,12 +1,10 @@
-import * as Actions from './actions.js';
+// import * as Actions from './actions.js';
 
 /**
  * メンションを受け取ったらリアクションする
  * @param {*} message 
  */
 export const replyBot = (message) => {
-    Actions.sendRemindMessage()
-
     // 特定の文言がメンションと一緒に送られた場合
     if (message.content.includes("こんにちは")) {
         message.channel.send("こんにちはッ！");
