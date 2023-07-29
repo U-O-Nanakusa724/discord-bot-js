@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const {
   Client,
   GatewayIntentBits
@@ -7,6 +9,11 @@ const client = new Client({
 });
 
 require('dotenv').config();
+if (typeof process.env.TOKEN == 'undefined') {
+  console.error('環境ファイルが見つからないよッ!');
+  console.error('envファイル…見直してみてッ!');
+  process.exit(1);
+}
 
 client.on('ready', () => {
   console.log('準備ッ…できたよッ！');
