@@ -7,7 +7,6 @@ import * as Actions from './actions.js';
  * @param {*} message 
  */
 export const replyBot = (message) => {
-    console.log(message)
     // 特定の文言がメンションと一緒に送られた場合
     // 「リマインド」を含む場合、リマインドON/OFF処理を実行
     if (message.content.includes("リマインド")) {
