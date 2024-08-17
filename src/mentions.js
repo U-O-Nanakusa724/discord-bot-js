@@ -1,4 +1,6 @@
-// import * as Actions from './actions.js';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+import * as Actions from './actions.js';
 
 /**
  * メンションを受け取ったらリアクションする
@@ -6,7 +8,10 @@
  */
 export const replyBot = (message) => {
     // 特定の文言がメンションと一緒に送られた場合
-    if (message.content.includes("こんにちは")) {
+    // 「リマインド」を含む場合、リマインドON/OFF処理を実行
+    if (message.content.includes("リマインド")) {
+        Actions.sendRemindMessage(message);
+    } else if (message.content.includes("こんにちは")) {
         message.channel.send("こんにちはッ！");
     } else if (message.content.includes("ハチワレ")) {
         message.channel.send("なになに!?");
